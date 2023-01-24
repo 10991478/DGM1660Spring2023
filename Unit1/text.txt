@@ -1,1 +1,2 @@
 :P
+I don't know how to add my maya stuff to git or connect my maya projects to git
