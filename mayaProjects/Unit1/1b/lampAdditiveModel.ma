@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: lampAdditiveModel.ma
-//Last modified: Fri, Jan 27, 2023 02:51:56 PM
+//Last modified: Fri, Jan 27, 2023 02:54:30 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.1.1";
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19045)";
-fileInfo "UUID" "65AF0A36-45E9-83B2-BD40-C7AFD5C1EC5F";
+fileInfo "UUID" "C5AEB53D-47A7-7D66-73F2-CCBE5ABEC308";
 createNode transform -s -n "persp";
 	rename -uid "E7D7A969-406F-4E47-8E87-619DA3C4767A";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -3.5774150930338111 7.220511731583767 21.023288225577723 ;
-	setAttr ".r" -type "double3" -6.3383527296162816 -9.4000000000007518 1.0074512302662255e-16 ;
+	setAttr ".t" -type "double3" -3.9661512511464267 9.2551475403476466 20.626117820454166 ;
+	setAttr ".r" -type "double3" -11.738352729615903 -10.600000000000122 2.0223575005564752e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "5F78F1F8-42A6-FF0B-7616-99B32ACED6AE";
 	setAttr -k off ".v" no;
@@ -196,8 +196,8 @@ createNode mesh -n "pDiscShape1" -p "pDisc1";
 parent -s -nc -r -add "|armLeft|armLeftShape" "armLeft1" ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "00124C0B-4332-CCF1-7FC6-57BD2E55A94B";
-	setAttr -s 3 ".lnk";
-	setAttr -s 3 ".slnk";
+	setAttr -s 4 ".lnk";
+	setAttr -s 4 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
 	rename -uid "8FFDE647-4BB8-DA5F-99A1-EC86ECD0A0F1";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
@@ -799,18 +799,36 @@ createNode shadingEngine -n "blinn1SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "15ADE0D3-4D77-A1DC-1464-CEA9F1466EB4";
+createNode blinn -n "lanternMetal";
+	rename -uid "6FE93648-4D40-C588-5B3C-799C6FD9E62A";
+	setAttr ".c" -type "float3" 0.021600001 0.0209 0.0195 ;
+	setAttr ".sc" -type "float3" 0.1293 0.093199998 0.0177 ;
+	setAttr ".ec" 0.46848461031913757;
+createNode shadingEngine -n "blinn2SG";
+	rename -uid "CC1A78AE-4311-E09A-8684-798F4D95EB8A";
+	setAttr ".ihi" 0;
+	setAttr -s 4 ".dsm";
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo2";
+	rename -uid "10456396-4DA0-58E0-64DE-DDAB5BC07B25";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "0F681246-4368-61EF-2D07-E5B3C23F5986";
+	rename -uid "D14F9459-4854-1D19-FF44-C6B2C4A0C102";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -615.47616601936511 ;
+	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -758.33330319987522 ;
 	setAttr ".tgi[0].vh" -type "double2" 807.14282506988297 44.047617297323995 ;
-	setAttr -s 2 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 440;
+	setAttr -s 4 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" 132.85714721679688;
 	setAttr ".tgi[0].ni[0].y" -101.42857360839844;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 132.85714721679688;
+	setAttr ".tgi[0].ni[1].x" 440;
 	setAttr ".tgi[0].ni[1].y" -101.42857360839844;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" 440;
+	setAttr ".tgi[0].ni[2].y" -101.42857360839844;
+	setAttr ".tgi[0].ni[2].nvs" 1923;
+	setAttr ".tgi[0].ni[3].x" 132.85714721679688;
+	setAttr ".tgi[0].ni[3].y" -101.42857360839844;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -821,15 +839,14 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 3 ".st";
+	setAttr -s 4 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 6 ".s";
+	setAttr -s 7 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 4 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -860,9 +877,11 @@ connectAttr "polyExtrudeFace26.out" "pDiscShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "blinn2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "blinn1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "blinn2SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drivers"
@@ -942,15 +961,24 @@ connectAttr "lanternGlass.oc" "blinn1SG.ss";
 connectAttr "pDiscShape1.iog" "blinn1SG.dsm" -na;
 connectAttr "blinn1SG.msg" "materialInfo1.sg";
 connectAttr "lanternGlass.msg" "materialInfo1.m";
-connectAttr "blinn1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "lanternMetal.oc" "blinn2SG.ss";
+connectAttr "lampTopShape.iog" "blinn2SG.dsm" -na;
+connectAttr "lampBaseShape.iog" "blinn2SG.dsm" -na;
+connectAttr "|armLeft|armLeftShape.iog" "blinn2SG.dsm" -na;
+connectAttr "|armLeft1|armLeftShape.iog" "blinn2SG.dsm" -na;
+connectAttr "blinn2SG.msg" "materialInfo2.sg";
+connectAttr "lanternMetal.msg" "materialInfo2.m";
+connectAttr "lanternMetal.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "lanternGlass.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "blinn2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "blinn1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "lanternGlass.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
 connectAttr "blinn1SG.pa" ":renderPartition.st" -na;
+connectAttr "blinn2SG.pa" ":renderPartition.st" -na;
 connectAttr "lanternGlass.msg" ":defaultShaderList1.s" -na;
+connectAttr "lanternMetal.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "lampBaseShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "lampTopShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|armLeft|armLeftShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "|armLeft1|armLeftShape.iog" ":initialShadingGroup.dsm" -na;
 // End of lampAdditiveModel.ma
