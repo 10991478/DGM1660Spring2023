@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: chairRemodel.ma
-//Last modified: Fri, Jan 27, 2023 01:08:46 PM
+//Last modified: Fri, Jan 27, 2023 01:13:16 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.1.1";
@@ -10,12 +10,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19045)";
-fileInfo "UUID" "AF296161-41B3-AB87-DBC2-EA933E46381F";
+fileInfo "UUID" "96E1EC91-4A1F-8EBF-82BE-BF9CE9A17CBC";
 createNode transform -s -n "persp";
 	rename -uid "2A6A9E46-4F80-0D0A-E166-B68CD4F80234";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -9.2628482126430693 11.81259577882121 17.096459007333234 ;
-	setAttr ".r" -type "double3" -26.138352729629666 328.99999999998255 0 ;
+	setAttr ".t" -type "double3" -13.977156665559905 11.080036635869591 17.761797858944075 ;
+	setAttr ".r" -type "double3" -20.138352729630242 321.79999999997995 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8B892FA9-4BCA-9643-D38C-BCBFF0DD414A";
 	setAttr -k off ".v" no;
@@ -23,11 +23,12 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 21.394149780913189;
+	setAttr ".coi" 24.073584941189832;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
+	setAttr ".tp" -type "double3" 0 85.093597412109375 0 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "CA2E2F02-44A9-21C9-769F-E982FCBD3612";
@@ -132,8 +133,8 @@ createNode mesh -n "seatShape" -p "seat";
 	setAttr -s 16 ".vt[0:15]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 0.65000463 0.5 0.37934706
 		 -0.65000463 0.5 0.37934706 -0.65000463 -0.5 0.37934706 0.65000463 -0.5 0.37934706
-		 0.52182752 0.5 -0.37204432 -0.52182752 0.5 -0.37204432 -0.52182752 -0.5 -0.37204432
-		 0.52182752 -0.5 -0.37204432;
+		 0.52182752 0.5 -0.3720443 -0.52182752 0.5 -0.3720443 -0.52182752 -0.5 -0.3720443
+		 0.52182752 -0.5 -0.3720443;
 	setAttr -s 28 ".ed[0:27]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 9 0
 		 3 8 0 4 6 0 5 7 0 6 14 0 7 15 0 8 12 0 9 13 0 8 9 1 10 0 0 9 10 1 11 1 0 10 11 1
 		 11 8 1 12 5 0 13 4 0 12 13 1 14 10 0 13 14 1 15 11 0 14 15 1 15 12 1;
@@ -170,7 +171,7 @@ createNode mesh -n "seatShape" -p "seat";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "frontRight";
+createNode transform -n "frontRight" -p "seat";
 	rename -uid "E8133B79-4E6B-B7DE-07C8-CBAAA8FE15DE";
 	setAttr ".t" -type "double3" -1.5 1.4493861082873307 1.6968983547569363 ;
 	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170307 ;
@@ -340,14 +341,35 @@ createNode mesh -n "frontLeftShape" -p "frontRight";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "chairBack";
-	rename -uid "492D240C-4FA5-5EED-CCF3-E7A00ED952AE";
-	setAttr ".t" -type "double3" -1.2 4.7229094078065845 -1.8073343747190858 ;
-	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774381 0.10862381323903537 ;
-	setAttr ".rp" -type "double3" 0 -1.766297754481146 1.0128853205716307e-15 ;
-	setAttr ".sp" -type "double3" 0 -0.49999998933997053 9.3247078183740185e-15 ;
-	setAttr ".spt" -type "double3" 0 -1.2662977651411755 -8.3118224978023863e-15 ;
-createNode mesh -n "chairBackShape" -p "chairBack";
+createNode transform -n "frontLeft" -p "seat";
+	rename -uid "8E393338-4F42-501A-3F3C-3B84B3212221";
+	setAttr ".t" -type "double3" 1.5 1.4493861082873307 1.6968983547569363 ;
+	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170307 ;
+	setAttr ".rp" -type "double3" 0 -1.4493861082873303 1.0657210730166127e-15 ;
+	setAttr ".sp" -type "double3" 0 -0.99999999519581861 5.5948246910244104e-15 ;
+	setAttr ".spt" -type "double3" 0 -0.44938611309151166 -4.5291036180077984e-15 ;
+createNode transform -n "backRight" -p "seat";
+	rename -uid "D0BB1BCF-4474-7B56-D60E-E8BC19FC3E29";
+	setAttr ".t" -type "double3" -1.2 1.4493861082873312 -1.697 ;
+	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170304 ;
+	setAttr ".rp" -type "double3" 0 -1.4493861082873309 0 ;
+	setAttr ".sp" -type "double3" 0 -0.99999999519581861 0 ;
+	setAttr ".spt" -type "double3" 0 -0.44938611309151166 0 ;
+createNode transform -n "backLeft" -p "seat";
+	rename -uid "DB2CAC46-4524-497B-19C5-8CAE96CD2149";
+	setAttr ".t" -type "double3" 1.2 1.4493861082873321 -1.697 ;
+	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170301 ;
+	setAttr ".rp" -type "double3" 0 -1.4493861082873316 0 ;
+	setAttr ".sp" -type "double3" 0 -0.99999999519581906 0 ;
+	setAttr ".spt" -type "double3" 0 -0.44938611309151183 0 ;
+createNode transform -n "chairBack3" -p "seat";
+	rename -uid "6B92523F-40DF-159E-4756-0C89E58AE963";
+	setAttr ".t" -type "double3" 0.59999999999999976 4.7229094078065827 -1.8073343747190853 ;
+	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774373 0.10862381323903535 ;
+	setAttr ".rp" -type "double3" -1.731257443464576e-16 -1.7662977544811476 0 ;
+	setAttr ".sp" -type "double3" -4.662353909187009e-16 -0.49999998933997114 0 ;
+	setAttr ".spt" -type "double3" 2.9310964657224333e-16 -1.2662977651411764 0 ;
+createNode mesh -n "chairBackShape" -p "chairBack3";
 	rename -uid "4B7BBC37-4D99-41CD-0C38-C9B1BA56713A";
 	setAttr -k off ".v";
 	setAttr -s 5 ".iog";
@@ -399,7 +421,7 @@ createNode mesh -n "chairBackShape" -p "chairBack";
 	setAttr ".pt[19]" -type "float3" -0.17699841 0 0.66835916 ;
 	setAttr -s 20 ".vt[0:19]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 0.5 -0.36502755 1.27992702
-		 -0.5 -0.36502755 1.27992702 -0.5 -0.36502755 0.27992702 0.5 -0.36502755 0.27992702
+		 -0.5 -0.36502755 1.27992702 -0.5 -0.36502755 0.27992705 0.5 -0.36502755 0.27992705
 		 0.62086612 0.34489673 1.57373416 -0.62086612 0.34489673 1.57373416 -0.62086612 0.34489673 0.57373422
 		 0.62086612 0.34489673 0.57373422 0.53733444 -0.1457383 1.37068141 -0.53733444 -0.1457383 1.37068141
 		 -0.53733444 -0.14573829 0.37068143 0.53733444 -0.14573829 0.37068143;
@@ -448,35 +470,7 @@ createNode mesh -n "chairBackShape" -p "chairBack";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "chairBack1";
-	rename -uid "A18F978D-4203-936B-899C-B3A590CD5832";
-	setAttr ".t" -type "double3" -0.6 4.7229094078065845 -1.8073343747190858 ;
-	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774381 0.10862381323903537 ;
-	setAttr ".rp" -type "double3" 0 -1.766297754481146 1.0128853205716307e-15 ;
-	setAttr ".sp" -type "double3" 0 -0.49999998933997053 9.3247078183740185e-15 ;
-	setAttr ".spt" -type "double3" 0 -1.2662977651411755 -8.3118224978023863e-15 ;
-createNode transform -n "chairBack2";
-	rename -uid "FE775562-422B-BB8F-A0E3-CF857BBAC721";
-	setAttr ".t" -type "double3" -1.1655884772967523e-16 4.7229094078065836 -1.8073343747190855 ;
-	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774377 0.10862381323903536 ;
-	setAttr ".rp" -type "double3" 0 -1.7662977544811458 0 ;
-	setAttr ".sp" -type "double3" 0 -0.49999998933997053 0 ;
-	setAttr ".spt" -type "double3" 0 -1.2662977651411753 0 ;
-createNode transform -n "chairBack3";
-	rename -uid "6B92523F-40DF-159E-4756-0C89E58AE963";
-	setAttr ".t" -type "double3" 0.59999999999999976 4.7229094078065827 -1.8073343747190853 ;
-	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774373 0.10862381323903535 ;
-	setAttr ".rp" -type "double3" -1.731257443464576e-16 -1.7662977544811476 0 ;
-	setAttr ".sp" -type "double3" -4.662353909187009e-16 -0.49999998933997114 0 ;
-	setAttr ".spt" -type "double3" 2.9310964657224333e-16 -1.2662977651411764 0 ;
-createNode transform -n "chairBack4";
-	rename -uid "18918803-4C37-FE7C-F2D1-81BB01A9AE78";
-	setAttr ".t" -type "double3" 1.1999999999999997 4.722909407806581 -1.8073343747190851 ;
-	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774368 0.10862381323903533 ;
-	setAttr ".rp" -type "double3" 3.462514886929152e-16 -1.7662977544811478 -1.4180394488002847e-15 ;
-	setAttr ".sp" -type "double3" 9.3247078183740181e-16 -0.49999998933997125 -1.3054590945723625e-14 ;
-	setAttr ".spt" -type "double3" -5.8621929314448666e-16 -1.2662977651411766 1.1636551496923341e-14 ;
-createNode transform -n "chairTop";
+createNode transform -n "chairTop" -p "seat";
 	rename -uid "A9B8E758-49B7-5FA8-6D75-CE861E2769BA";
 	setAttr ".rp" -type "double3" 0 6.5383125847802024 -1.8912888384371334 ;
 	setAttr ".sp" -type "double3" 0 6.5383125847802024 -1.8912888384371334 ;
@@ -535,15 +529,15 @@ createNode mesh -n "chairTopShape" -p "chairTop";
 		-1.4908183 -1.1994737 6.7399864 -2.1136963 -1.1994737 6.4408197 -2.327698 -1.1994737 
 		6.2713714 -1.6489518 -1.1994737 6.7010722 -1.4748093;
 	setAttr -s 48 ".vt[0:47]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 0.40909088 -0.5 0.5 0.40909088 0.5 0.5
-		 0.40909088 0.5 -0.5 0.40909088 -0.5 -0.5 0.31818175 -0.5 0.5 0.31818175 0.5 0.5 0.31818175 0.5 -0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 0.40909091 -0.5 0.5 0.40909091 0.5 0.5
+		 0.40909091 0.5 -0.5 0.40909091 -0.5 -0.5 0.31818175 -0.5 0.5 0.31818175 0.5 0.5 0.31818175 0.5 -0.5
 		 0.31818175 -0.5 -0.5 0.22727269 -0.5 0.5 0.22727269 0.5 0.5 0.22727269 0.5 -0.5 0.22727269 -0.5 -0.5
 		 0.1363636 -0.5 0.5 0.1363636 0.5 0.5 0.1363636 0.5 -0.5 0.1363636 -0.5 -0.5 0.045454524 -0.5 0.5
 		 0.045454524 0.5 0.5 0.045454524 0.5 -0.5 0.045454524 -0.5 -0.5 -0.045454569 -0.5 0.5
 		 -0.045454569 0.5 0.5 -0.045454569 0.5 -0.5 -0.045454569 -0.5 -0.5 -0.13636364 -0.5 0.5
 		 -0.13636364 0.5 0.5 -0.13636364 0.5 -0.5 -0.13636364 -0.5 -0.5 -0.22727273 -0.5 0.5
-		 -0.22727273 0.5 0.5 -0.22727273 0.5 -0.5 -0.22727273 -0.5 -0.5 -0.31818181 -0.5 0.5
-		 -0.31818181 0.5 0.5 -0.31818181 0.5 -0.5 -0.31818181 -0.5 -0.5 -0.40909094 -0.5 0.5
+		 -0.22727273 0.5 0.5 -0.22727273 0.5 -0.5 -0.22727273 -0.5 -0.5 -0.31818178 -0.5 0.5
+		 -0.31818178 0.5 0.5 -0.31818178 0.5 -0.5 -0.31818178 -0.5 -0.5 -0.40909094 -0.5 0.5
 		 -0.40909094 0.5 0.5 -0.40909094 0.5 -0.5 -0.40909094 -0.5 -0.5;
 	setAttr -s 92 ".ed[0:91]"  0 44 0 2 45 0 4 46 0 6 47 0 0 2 0 1 3 0 2 4 0
 		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0 8 1 0 9 3 0 8 9 1 10 5 0 9 10 1 11 7 0 10 11 1 11 8 1
@@ -651,49 +645,56 @@ createNode mesh -n "chairTopShape" -p "chairTop";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "frontLeft";
-	rename -uid "8E393338-4F42-501A-3F3C-3B84B3212221";
-	setAttr ".t" -type "double3" 1.5 1.4493861082873307 1.6968983547569363 ;
-	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170307 ;
-	setAttr ".rp" -type "double3" 0 -1.4493861082873303 1.0657210730166127e-15 ;
-	setAttr ".sp" -type "double3" 0 -0.99999999519581861 5.5948246910244104e-15 ;
-	setAttr ".spt" -type "double3" 0 -0.44938611309151166 -4.5291036180077984e-15 ;
-createNode transform -n "backRight";
-	rename -uid "D0BB1BCF-4474-7B56-D60E-E8BC19FC3E29";
-	setAttr ".t" -type "double3" -1.2 1.4493861082873312 -1.697 ;
-	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170304 ;
-	setAttr ".rp" -type "double3" 0 -1.4493861082873309 0 ;
-	setAttr ".sp" -type "double3" 0 -0.99999999519581861 0 ;
-	setAttr ".spt" -type "double3" 0 -0.44938611309151166 0 ;
-createNode transform -n "backLeft";
-	rename -uid "DB2CAC46-4524-497B-19C5-8CAE96CD2149";
-	setAttr ".t" -type "double3" 1.2 1.4493861082873321 -1.697 ;
-	setAttr ".s" -type "double3" 0.19048337202170307 1.4493861152504441 0.19048337202170301 ;
-	setAttr ".rp" -type "double3" 0 -1.4493861082873316 0 ;
-	setAttr ".sp" -type "double3" 0 -0.99999999519581906 0 ;
-	setAttr ".spt" -type "double3" 0 -0.44938611309151183 0 ;
-parent -s -nc -r -add "|frontRight|frontLeftShape" "frontLeft" ;
-parent -s -nc -r -add "|frontRight|frontLeftShape" "backRight" ;
-parent -s -nc -r -add "|frontRight|frontLeftShape" "backLeft" ;
-parent -s -nc -r -add "|chairBack|chairBackShape" "chairBack1" ;
-parent -s -nc -r -add "|chairBack|chairBackShape" "chairBack2" ;
-parent -s -nc -r -add "|chairBack|chairBackShape" "chairBack3" ;
-parent -s -nc -r -add "|chairBack|chairBackShape" "chairBack4" ;
+createNode transform -n "chairBack" -p "seat";
+	rename -uid "492D240C-4FA5-5EED-CCF3-E7A00ED952AE";
+	setAttr ".t" -type "double3" -1.2 4.7229094078065845 -1.8073343747190858 ;
+	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774381 0.10862381323903537 ;
+	setAttr ".rp" -type "double3" 0 -1.766297754481146 1.0128853205716307e-15 ;
+	setAttr ".sp" -type "double3" 0 -0.49999998933997053 9.3247078183740185e-15 ;
+	setAttr ".spt" -type "double3" 0 -1.2662977651411755 -8.3118224978023863e-15 ;
+createNode transform -n "chairBack1" -p "seat";
+	rename -uid "A18F978D-4203-936B-899C-B3A590CD5832";
+	setAttr ".t" -type "double3" -0.6 4.7229094078065845 -1.8073343747190858 ;
+	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774381 0.10862381323903537 ;
+	setAttr ".rp" -type "double3" 0 -1.766297754481146 1.0128853205716307e-15 ;
+	setAttr ".sp" -type "double3" 0 -0.49999998933997053 9.3247078183740185e-15 ;
+	setAttr ".spt" -type "double3" 0 -1.2662977651411755 -8.3118224978023863e-15 ;
+createNode transform -n "chairBack2" -p "seat";
+	rename -uid "FE775562-422B-BB8F-A0E3-CF857BBAC721";
+	setAttr ".t" -type "double3" -1.1655884772967523e-16 4.7229094078065836 -1.8073343747190855 ;
+	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774377 0.10862381323903536 ;
+	setAttr ".rp" -type "double3" 0 -1.7662977544811458 0 ;
+	setAttr ".sp" -type "double3" 0 -0.49999998933997053 0 ;
+	setAttr ".spt" -type "double3" 0 -1.2662977651411753 0 ;
+createNode transform -n "chairBack4" -p "seat";
+	rename -uid "18918803-4C37-FE7C-F2D1-81BB01A9AE78";
+	setAttr ".t" -type "double3" 1.1999999999999997 4.722909407806581 -1.8073343747190851 ;
+	setAttr ".s" -type "double3" 0.37132690421745812 3.5325955842774368 0.10862381323903533 ;
+	setAttr ".rp" -type "double3" 3.462514886929152e-16 -1.7662977544811478 -1.4180394488002847e-15 ;
+	setAttr ".sp" -type "double3" 9.3247078183740181e-16 -0.49999998933997125 -1.3054590945723625e-14 ;
+	setAttr ".spt" -type "double3" -5.8621929314448666e-16 -1.2662977651411766 1.1636551496923341e-14 ;
+parent -s -nc -r -add "|seat|frontRight|frontLeftShape" "frontLeft" ;
+parent -s -nc -r -add "|seat|frontRight|frontLeftShape" "backRight" ;
+parent -s -nc -r -add "|seat|frontRight|frontLeftShape" "backLeft" ;
+parent -s -nc -r -add "|seat|chairBack3|chairBackShape" "chairBack" ;
+parent -s -nc -r -add "|seat|chairBack3|chairBackShape" "chairBack1" ;
+parent -s -nc -r -add "|seat|chairBack3|chairBackShape" "chairBack2" ;
+parent -s -nc -r -add "|seat|chairBack3|chairBackShape" "chairBack4" ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "BA551DD5-4B4D-3568-8C93-0D9BBA38D154";
+	rename -uid "48F1D23B-4988-4F3D-9E58-2BA9D4A013B6";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "B7D04FDF-4E96-E008-C641-36B2474A94F4";
+	rename -uid "473D669D-4BFE-F94C-D4A2-6D9576F8C3EF";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "0D55393A-4C0A-67D4-A6E6-E1B5D6FAB851";
+	rename -uid "716D924E-4350-C1F4-B1D2-B69466E8EC2F";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "CBE64A71-4BF9-CB06-7012-0E81C922DA85";
+	rename -uid "9C4059A8-442B-06AE-AF97-759ABB890483";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "5525E486-4B5A-A0D8-DEF0-ADB65BFADFC6";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "B1CDE23E-4FBA-0846-FA2B-C6ABB59C7E09";
+	rename -uid "212CDB7B-418E-9233-37C7-2F9CBDEEC048";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "BD32981C-4952-2E1C-FF1B-4B9975BA025D";
 	setAttr ".g" yes;
@@ -820,8 +821,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -835,17 +834,17 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "chair.oc" "lambert2SG.ss";
-connectAttr "|chairBack4|chairBackShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|chairBack4|chairBackShape.iog" "lambert2SG.dsm" -na;
 connectAttr "seatShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|frontRight|frontLeftShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|chairBack3|chairBackShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|chairBack2|chairBackShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|chairBack1|chairBackShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|chairBack|chairBackShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|frontRight|frontLeftShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|chairBack3|chairBackShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|chairBack2|chairBackShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|chairBack1|chairBackShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|chairBack|chairBackShape.iog" "lambert2SG.dsm" -na;
 connectAttr "chairTopShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|frontLeft|frontLeftShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|backRight|frontLeftShape.iog" "lambert2SG.dsm" -na;
-connectAttr "|backLeft|frontLeftShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|frontLeft|frontLeftShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|backRight|frontLeftShape.iog" "lambert2SG.dsm" -na;
+connectAttr "|seat|backLeft|frontLeftShape.iog" "lambert2SG.dsm" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "chair.msg" "materialInfo1.m";
 connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
