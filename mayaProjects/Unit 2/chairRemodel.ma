@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: chairRemodel.ma
-//Last modified: Sat, Feb 04, 2023 12:58:31 PM
+//Last modified: Sat, Feb 04, 2023 01:01:21 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.1.1";
@@ -10,12 +10,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19045)";
-fileInfo "UUID" "51C1C618-465D-5889-A201-13A3B0EDBCC7";
+fileInfo "UUID" "C2D14B17-4B83-A531-DB9F-6990541F446B";
 createNode transform -s -n "persp";
 	rename -uid "2A6A9E46-4F80-0D0A-E166-B68CD4F80234";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.85946658305894974 4.9742162387270206 14.082011663731219 ;
-	setAttr ".r" -type "double3" -14.138352771342001 716.60000000000059 0 ;
+	setAttr ".t" -type "double3" -7.8267244251235333 7.3416077563469919 10.144239907651711 ;
+	setAttr ".r" -type "double3" -23.138352771245891 683.39999999997372 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8B892FA9-4BCA-9643-D38C-BCBFF0DD414A";
 	setAttr -k off ".v" no;
@@ -23,7 +23,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 15.888296366347966;
+	setAttr ".coi" 15.888296366352494;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
